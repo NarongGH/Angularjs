@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<title>Learning Angular</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1 class="text-center">Shopping Items</h1>
+	<div class="container" ng-controller="StoreController as store">
+		<div ng-repeat="item in store.product">
+			<ul>
+				<li class="row">
+					<div class="col-xs-12">
+						<strong>{{item.cloth | uppercase}}</strong>
+						<em class="pull-right btn btn-info btn-xs">{{item.price | currency}}</em>
+					</div>
+					<div class="col-xs-12 text-center">
+						<img ng-src="{{item.img[0].thumb}}" alt="">
+					</div>
+					<button class="text-center btn btn-success btn-md">Add to cart</button>
+					<section>
+						<ul  class="nav nav-pills" ng-init="tab === 1">
+							<li><a href ng-click="tab = 1">Description</a></li>
+							<li><a href ng-click="tab = 2">Specification</a></li>
+							<li><a href ng-click="tab = 3">Reviews</a></li>
+					</section>
+					<div class="panel" ng-show=" tab === 1">
+						<h4>Description</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia ipsa optio modi veniam quo vero consequuntur minima corporis atque sed nesciunt itaque accusantium numquam suscipit et sint quaerat hic, quia.</p>
+					</div>
+					<div class="panel" ng-show=" tab === 2">
+						<h4>Specifications</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia ipsa optio modi veniam quo vero consequuntur minima corporis atque sed nesciunt itaque accusantium numquam suscipit et sint quaerat hic, quia.</p>
+					</div>
+					<div class="panel" ng-show=" tab === 3">
+						<h4>Reviews</h4>
+						<p>None yet.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/angular.js"></script>
+	<script src="js/store.js"></script>
+</body>
+</html>
